@@ -1,0 +1,50 @@
+﻿@model TestHotelaria.Models.Hotel
+
+@{
+    ViewData["Title"] = "Excluir Hotel";
+}
+
+<h2 style="padding-bottom:10px; padding-top:15px">@ViewData["Title"]</h2>
+
+<div>
+    <h4>Esta ação será permanete!</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ResumoHotel)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ResumoHotel)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Avaliacao)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Avaliacao)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Endereco)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Endereco)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Comodidade)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Comodidade)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Excluir" class="btn btn-danger" />
+        <a class="btn btn-info" asp-action="Index">Voltar</a>
+    </form>
+</div>

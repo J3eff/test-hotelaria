@@ -1,0 +1,75 @@
+﻿@model IEnumerable<TestHotelaria.Models.Hotel>
+
+@{
+    ViewData["Title"] = "Lista de Hoteis";
+}
+
+<h1 style="padding-top: 10px">@ViewData["Title"]</h1>
+
+@{
+    Layout = "_Layout";
+}
+
+
+
+
+<form>
+    <div class="row">
+        <div class="col-md-6">
+            <label class="text-left">Pesquisa de hotel</label>
+            <input class="form-control" type="text" name="BuscaPorNome" /><br />
+            <input style="margin:10px" class="btn btn-primary" type="submit" value="Filtar" />
+        </div>
+    </div>
+</form>
+
+<p align="right"  style="padding-top: 10px; float: right";>
+    <a  class="btn btn-info" asp-action="Create">Novo Hotel</a>
+</p>
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Endereco)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Avaliacao)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Comodidade)
+            </th>
+            <th>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Endereco)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Avaliacao)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Comodidade)
+                </td>
+                <td class="text-right">
+                    <a class="btn btn-info" asp-action="Details" asp-route-id="@item.Id"><span class="fa fa-search"></span></a>
+                    <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.Id"><span class="fa fa-pencil-alt"></span></a>
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id"><span class="fa fa-trash"></span></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
